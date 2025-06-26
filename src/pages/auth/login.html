@@ -2,46 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Movies App</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/auth.css">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <div class="auth-container">
-        <div class="auth-card">
-            <div class="auth-header">
-                <h1>Movies App</h1>
-                <p>Sign in to your account</p>
-            </div>
-            
-            <form class="auth-form" id="login-form">
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                
-                <div class="form-options">
-                    <label class="checkbox-label">
-                        <input type="checkbox" name="remember">
-                        <span class="checkmark"></span>
-                        Remember me
-                    </label>
-                    <a href="#" class="forgot-link">Forgot password?</a>
-                </div>
-                
-                <button type="submit" class="auth-btn">Sign In</button>
-            </form>
-            
-            <div class="auth-footer">
-                <p>Don't have an account? <a href="register.html">Sign up</a></p>
-            </div>
-        </div>
+    <div id="login-form">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="Enter your email">
+        <div id="email-error" style="color:red;"></div>
+      
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Enter your password">
+        <div id="password-error" style="color:red;"></div>
+      
+        <button type="submit">Login</button>
     </div>
+    
+    <script src="/src/scripts/main.ts"></script>
 </body>
 </html>
