@@ -17,7 +17,7 @@ function loadData(callback: (data: MovieData) => void) {
 
 loadData((data) => {
   const movies = data["all-movies"];
-  const genres = data["filtered-movie"];
+  // const genres = data["filtered-movie"];
   const shuffledMovies = [...movies].sort(() => Math.random() - 0.5);
   renderMovies(shuffledMovies);
 
@@ -66,3 +66,4 @@ function renderMovies(movies: Movies[]) {
     moviesTable.append(tr);
   });
 }
+console.log("say hello");
