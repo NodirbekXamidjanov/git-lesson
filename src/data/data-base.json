@@ -161,7 +161,7 @@
             "dailyRentalRate": 20
         }
     ],
-    "filteres-movies": [
+    "filtered-movie": [
         {
             "_id": "6858de082cc606f4cbe0663a",
             "name": "Action"
