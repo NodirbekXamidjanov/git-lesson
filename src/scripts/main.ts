@@ -66,3 +66,4 @@ function renderMovies(movies: Movies[]) {
     moviesTable.append(tr);
   });
 }
+console.log("say hello");
