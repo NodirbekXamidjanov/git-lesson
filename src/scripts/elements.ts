@@ -11,3 +11,7 @@ export const countMovie = document.querySelector(
 export const searchInput = document.querySelector(
   "#searchInput"
 ) as HTMLInputElement;
+export const paginationContainer = document.querySelector(
+  "#pagination"
+) as HTMLUListElement;
+export const pageTitle = document.querySelector("#pageTitle") as HTMLHeadingElement;

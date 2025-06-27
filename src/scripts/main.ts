@@ -2,9 +2,13 @@ import {
   containerButtons,
   countMovie,
   moviesTable,
+  pageTitle,
+  paginationContainer,
   searchInput,
 } from "./elements";
 import type { MovieData, Movies } from "./type";
+let currentPage = 1;
+const moviePerPage = 5;
 
 function loadData(callback: (data: MovieData) => void) {
   fetch("src/data/data-base.json")
@@ -17,41 +21,70 @@ function loadData(callback: (data: MovieData) => void) {
 
 loadData((data) => {
   const movies = data["all-movies"];
-  // const genres = data["filtered-movie"];
   const shuffledMovies = [...movies].sort(() => Math.random() - 0.5);
-  renderMovies(shuffledMovies);
+
+  renderWithPagination(shuffledMovies);
 
   searchInput!.addEventListener("input", (event: Event) => {
     const value = (event.target as HTMLInputElement).value.toLowerCase();
-
-    const filteredMovie = movies.filter((mov) =>
+    const filteredMovies = movies.filter((mov) =>
       mov.genre.name.toLowerCase().includes(value)
     );
-
-    renderMovies(filteredMovie);
+    renderWithPagination(filteredMovies);
   });
+
   containerButtons.addEventListener("click", (event: MouseEvent) => {
     const btn = event.target as HTMLButtonElement;
     const button = btn.getAttribute("data-category");
     if (!button) return;
-console.log(button);
-
-    const filteredMovie =
+    pageTitle.innerHTML = `${
+      button.charAt(0).toUpperCase() + button.slice(1)
+    } Movies`;
+    const filteredMovies =
       button === "all"
         ? movies
         : movies.filter(
             (mov) => mov.genre.name.toLowerCase() === button.toLowerCase()
           );
-    renderMovies(filteredMovie);
+
     const allBtns = containerButtons.querySelectorAll(
       ".list-group-item"
     ) as NodeListOf<HTMLButtonElement>;
-    allBtns.forEach((btn) => {
-      btn.classList.remove("active");
-    });
+    allBtns.forEach((btn) => btn.classList.remove("active"));
     btn.classList.add("active");
+
+    currentPage = 1; 
+    renderWithPagination(filteredMovies);
   });
 });
+
+function renderWithPagination(movies: Movies[]) {
+  const totalPages = Math.ceil(movies.length / moviePerPage);
+  const start = (currentPage - 1) * moviePerPage;
+  const end = start + moviePerPage;
+  const paginatedMovies = movies.slice(start, end);
+
+  renderMovies(paginatedMovies);
+  renderPaginationButtons(movies, totalPages);
+}
+
+function renderPaginationButtons(movies: Movies[], totalPages: number) {
+  paginationContainer.innerHTML = ""; 
+  for (let i = 1; i <= totalPages; i++) {
+    const listItem = document.createElement("li");
+    listItem.textContent = i.toString();
+    listItem.className = `page-item page-link ${
+      i === currentPage ? "active" : ""
+    }`;
+
+    listItem.addEventListener("click", () => {
+      currentPage = i;
+      renderWithPagination(movies);
+    });
+
+    paginationContainer.appendChild(listItem);
+  }
+}
 
 function renderMovies(movies: Movies[]) {
   countMovie!.textContent = movies.length.toString();
@@ -59,11 +92,11 @@ function renderMovies(movies: Movies[]) {
   movies.forEach((movie) => {
     const tr = document.createElement("tr");
     tr.innerHTML = `
-                  <td><a href="#">${movie.title}</a></td>
-                  <td>${movie.genre.name}</td>
-                  <td>${movie.numberInStock}</td>
-                  <td>$${movie.dailyRentalRate}</td>
-                `;
+      <td><a class="movie-title" href="#">${movie.title}</a></td>
+      <td>${movie.genre.name}</td>
+      <td>${movie.numberInStock}</td>
+      <td>$${movie.dailyRentalRate}</td>
+    `;
     moviesTable.append(tr);
   });
 }
