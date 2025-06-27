@@ -9,6 +9,7 @@ export interface Movies {
   numberInStock: number;
   dailyRentalRate: number;
   genre: Genre;
+   
 }
 
 export interface MovieData {

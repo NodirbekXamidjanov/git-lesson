@@ -34,6 +34,7 @@ loadData((data) => {
     const btn = event.target as HTMLButtonElement;
     const button = btn.getAttribute("data-category");
     if (!button) return;
+console.log(button);
 
     const filteredMovie =
       button === "all"
