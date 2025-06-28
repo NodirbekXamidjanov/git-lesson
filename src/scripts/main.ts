@@ -65,5 +65,37 @@ function renderMovies(movies: Movies[]) {
                 `;
     moviesTable.append(tr);
   });
+}function openLoginPage(): void {
+  const mainPage = document.getElementById("mainPage") as HTMLElement;
+  const loginPage = document.getElementById("loginPage") as HTMLElement;
+
+  if (mainPage && loginPage) {
+    mainPage.style.display = "none";
+    loginPage.style.display = "block";
+  }
 }
-console.log("say hello");
+document.addEventListener("DOMContentLoaded", () => {
+  const loginForm = document.getElementById("loginForm") as HTMLFormElement;
+
+  loginForm.addEventListener("submit", (event: Event) => {
+    event.preventDefault();
+
+    const emailInput = document.getElementById("email") as HTMLInputElement;
+    const passwordInput = document.getElementById("password") as HTMLInputElement;
+
+    const email = emailInput.value.trim();
+    const password = passwordInput.value.trim();
+
+    if (!email || !password) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    // Пример: простая проверка (в реальных проектах отправляется на сервер)
+    if (email === "admin@gmail.com" && password === "1234") {
+      alert("Login successful!");
+    } else {
+      alert("Invalid email or password.");
+    }
+  });
+});
