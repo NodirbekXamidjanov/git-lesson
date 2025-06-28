@@ -99,7 +99,8 @@ function renderMovies(movies: Movies[]) {
     `;
     moviesTable.append(tr);
   });
-}function openLoginPage(): void {
+}
+function openLoginPage(): void {
   const mainPage = document.getElementById("mainPage") as HTMLElement;
   const loginPage = document.getElementById("loginPage") as HTMLElement;
 
