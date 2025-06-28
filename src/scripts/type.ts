@@ -15,10 +15,3 @@ export interface MovieData {
   "all-movies": Movies[];
   "filtered-movie": Genre[];
 }
-
-// type Role = "Admin" | "User" | "Ceo";
-// interface User {
-//   _id: number;
-//   name: string;
-//   role: Role;
-// }
