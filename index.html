@@ -16,47 +16,48 @@
 
 <body class="bg-light">
   <!-- Header -->
-  <div class="main" id="mainPage">
-    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
-      <div class="container-fluid">
-        <a class="navbar-brand fw-bold" href="#">Movies App</a>
-        <div class="navbar-nav ms-auto">
-          <a class="nav-link" href="src/pages/auth/login.html">Login</a>
-          <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">Movies App</a>
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="src/pages/auth/login.html" data-bs-toggle="modal"
+          data-bs-target="#loginModal">Login</a>
+        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container-fluid p-0">
+    <div class="row g-0">
+      <!-- Sidebar -->
+      <div class="col-md-2 bg-white border-end vh-100">
+        <div class="p-3">
+          <div class="list-group list-group-flush" id="categoryList">
+            <button class="list-group-item list-group-item-action active rounded mb-1" data-category="all">
+              All
+            </button>
+            <button class="list-group-item list-group-item-action rounded mb-1" data-category="action">
+              Action
+            </button>
+            <button class="list-group-item list-group-item-action rounded mb-1" data-category="comedy">
+              Comedy
+            </button>
+            <button class="list-group-item list-group-item-action rounded mb-1" data-category="romance">
+              Romance
+            </button>
+            <button class="list-group-item list-group-item-action rounded mb-1" data-category="thriller">
+              Thriller
+            </button>
+          </div>
         </div>
       </div>
-<<<<<<< HEAD
-    </nav>
-  
-    <!-- Main Container -->
-    <div class="container-fluid p-0">
-      <div class="row g-0">
-        <!-- Sidebar -->
-        <div class="col-md-2 bg-white border-end vh-100">
-          <div class="p-3">
-            <div class="list-group list-group-flush" id="categoryList">
-              <button class="list-group-item list-group-item-action active rounded mb-1" data-category="all">
-                All
-              </button>
-              <button class="list-group-item list-group-item-action rounded mb-1" data-category="action">
-                Action
-              </button>
-              <button class="list-group-item list-group-item-action rounded mb-1" data-category="comedy">
-                Comedy
-              </button>
-              <button class="list-group-item list-group-item-action rounded mb-1" data-category="romance">
-                Romance
-              </button>
-              <button class="list-group-item list-group-item-action rounded mb-1" data-category="thriller">
-                Thriller
-              </button>
-=======
 
       <!-- Main Content -->
       <div class="col-md-10 bg-white">
         <div class="p-4">
           <!-- Page Title -->
-          <h4 class="mb-4" id="pageTitle">All Movies</h4>
+          <h4 class="mb-4" id="pageTitle">Movies</h4>
 
           <!-- Info and Search Row -->
           <div class="row mb-4">
@@ -64,60 +65,14 @@
               <p class="text-muted mb-0">
                 Showing <span id="movieCount" class="fw-bold">16</span> movies in the database.
               </p>
->>>>>>> 4268864e6b83887dc5cca575bcdc3b6f08d6afd1
             </div>
-          </div>
-        </div>
-  
-        <!-- Main Content -->
-        <div class="col-md-10 bg-white">
-          <div class="p-4">
-            <!-- Page Title -->
-            <h4 class="mb-4" id="pageTitle">Movies</h4>
-  
-            <!-- Info and Search Row -->
-            <div class="row mb-4">
-              <div class="col-md-6">
-                <p class="text-muted mb-0">
-                  Showing <span id="movieCount" class="fw-bold">16</span> movies in the database.
-                </p>
-              </div>
-              <div class="col-md-6">
-                <div class="position-relative">
-                  <input type="text" class="form-control" id="searchInput" placeholder="Search...">
-                  <i class="fas fa-search position-absolute top-50 end-0 translate-middle-y me-3 text-muted"></i>
-                </div>
+            <div class="col-md-6">
+              <div class="position-relative">
+                <input type="text" class="form-control" id="searchInput" placeholder="Search...">
+                <i class="fas fa-search position-absolute top-50 end-0 translate-middle-y me-3 text-muted"></i>
               </div>
             </div>
-  
-            <!-- Movies Table -->
-            <div class="table-responsive">
-              <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th scope="col">Title</th>
-                    <th scope="col">Genre</th>
-                    <th scope="col">Stock</th>
-                    <th scope="col">Rate</th>
-                    <th scope="col"></th>
-                  </tr>
-                </thead>
-                <tbody id="moviesTableBody">
-                  <!-- Movies will be populated by TypeScript -->
-                  
-                </tbody>
-              </table>
-            </div>
-  
-            <!-- Pagination -->
-            <nav aria-label="Movies pagination" class="mt-4">
-              <ul class="pagination justify-content-center" id="pagination">
-                <!-- Pagination will be populated by TypeScript -->
-              </ul>
-            </nav>
           </div>
-<<<<<<< HEAD
-=======
 
           <!-- Movies Table -->
           <div class="table-responsive">
@@ -133,7 +88,7 @@
               </thead>
               <tbody id="moviesTableBody">
                 <!-- Movies will be populated by TypeScript -->
-
+                
               </tbody>
             </table>
           </div>
@@ -144,40 +99,10 @@
               <!-- Pagination will be populated by TypeScript -->
             </ul>
           </nav>
->>>>>>> 4268864e6b83887dc5cca575bcdc3b6f08d6afd1
         </div>
       </div>
     </div>
-     <div class="login" id="loginPage"> 
-      <header>
-        <div class="nav">
-          <span class="logo">Movies App</span>
-          <div class="nav-links">
-            <a href="#" id="loginLink">Login</a>
-            <a href="#">Register</a>
-          </div>
-        </div>
-      </header>
-    
-      <main>
-        <div id="loginPage" class="login-container">
-          <h2>Login</h2>
-          <form id="loginForm">
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="Enter your email" required>
-    
-            <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Enter your password" required>
-    
-            <button type="submit">Login</button>
-          </form>
-        </div>
-      </main>
-     </div>  
   </div>
-  <!-- Login page -->
-  <!-- Register page -->
-
 
   <script type="module" src="/src/scripts/main.ts"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
